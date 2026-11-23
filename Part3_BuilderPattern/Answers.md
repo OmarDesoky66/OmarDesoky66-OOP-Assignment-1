@@ -16,3 +16,15 @@ A better design is to separate them into smaller classes:
 - `Order`: Handles order and payment information.
 - `Invoice`: Combines customer information, addresses, and order details.
 
+
+# Task 3.3 — Composed Builders
+
+## Why is the composed version better than the single big builder from Task 3.2?
+
+- **Single Responsibility:** Each builder handles only one specific object. `AddressBuilder` builds addresses, `OrderBuilder` builds orders, and `InvoiceBuilder` combines them into an invoice.
+
+- **Independent Validation:** `AddressBuilder` validates address fields independently, without requiring the InvoiceBuilder to know address validation rules.
+
+- **Reuse:** The same `AddressBuilder` can create both billing and shipping addresses, avoiding duplicated builder logic.
+
+- **Readability:** The composed version separates object creation into clear steps, making the code easier to read and understand compared to passing all properties through one large builder.
